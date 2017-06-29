@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app = "App">
+	<head>
+		<meta charset="UTF-8">
+		<script src="/Test_PHP/js/angular.min.js" charset="utf-8"></script>
+		<script src="/Test_PHP/js/controlador.js" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/Test_PHP/css/bootstrap.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	</head>
+
+	<body ng-controller="AppCtrl">
+		<form id = "form" method="post" accept-charset="utf-8">
+			<div id = "div_pessoa" class="container-fluid">
+				<div class="row">
+					<div class="col-sm-2">
+					    <label for="nome">Nome:</label>
+					    <input ng-model = "inputNome" type="name"  required="required" maxlength = "50" class="form-control" name="nome">
+					</div>
+
+					<div class="col-sm-2">
+					    <label for="cpf">CPF:</label>
+					    <input ng-model = "inputCpf" type="text"  required="required" maxlength = "14" class="form-control" name="cpf">
+					    </div>
+
+					<div class="col-sm-2">
+					    <label for="idade">Idade:</label>
+					    <input ng-model = "inputIdade" type="number"  required="required" min = "0" max = "100" class="form-control" name="idade">
+					</div>	
+					
+					<div style = "padding-top: 20px;" id = "div_submit" class="container-fluid">
+		  				<button ng-click = "addPessoa()" type="submit" class="btn-default">Enviar<i class="material-icons">file_download</i></button>
+		  			</div>
+				</div>
+			</div>
+		</form>
+
+
+
+		<table class="table">
+			<caption>Pessoa</caption>
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Idade</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr ng-repeat = "p in pessoa">
+						<td>{{p.nome}}</td>
+						<td>{{p.cpf}}</td>
+						<td>{{p.idade}}</td>
+					</tr>
+				</tbody>
+
+		</table>
+	</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE <html>
+<html ng-app = "App">
+	<head>
+		<meta charset="utf-8">
+		<title>Várias tabelas</title>
+		
+		<!--
+		<script src="/Test_PHP/js/angular.min.js"></script>
+		<script src="/Test_PHP/js/controlador.js"></script>
+		-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js" type="text/javascript"></script> 
+		<script>
+			$("#form").submit(function(e){ 
+				console.log($(this).serialize());
+				e.preventDefault();
+
+			});
+
+			/*$.ajax({ 	type: "post", 	
+						dataType: "json", 	
+						url: "", 	
+						data: {},
+						success: function(data){  		
+						},error: function(xhr){}
+			});*/
+
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="/Test_PHP/css/bootstrap.css">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	</head>
+
+
+	<body>
+		<div class="thumbnail">
+			<div class="container-fluid " id = "div_cadastro">
+				<fieldset>
+    				<legend>Cadastro Pessoa (várias tabelas)</legend>
+					<form id = "form" method="post" accept-charset="utf-8">
+						<div id = "div_pessoa" class="container-fluid">
+								<div class="row">
+									<div class="col-sm-2">
+				    					<label for="nome">Nome:</label>
+				    					<input type="name"  required="required" maxlength = "50" class="form-control" name="nome">
+				  					</div>
+
+				  					<div class="col-sm-2">
+				    					<label for="cpf">CPF:</label>
+				    					<input type="text"  required="required" maxlength = "14" class="form-control" name="cpf">
+				 		 			</div>
+
+				 		 			<div class="col-sm-2">
+				    					<label for="idade">Idade:</label>
+				    					<input type="number"  required="required" min = "0" max = "100" class="form-control" name="idade">
+				  					</div>
+
+				  					<div class="col-sm-2">
+				    					<label for="cidade">Cidade:</label>
+				    					<input type="name"  required="required" maxlength = "20" class="form-control" name="cidade">
+				  					</div>
+
+				  					<div class="col-sm-2">
+				    					<label for="estado">Estado:</label>
+				    					<input type="name"  required="required" maxlength= "2" class="form-control" name="estado">
+				 		 			</div>
+				  				</div>
+		  				</div>
+		  				
+		  				<div id = "div_endereco" class="container-fluid">
+								<div class="row">
+									<div class="col-sm-4">
+				    					<label for="rua">Rua:</label>
+				    					<input type="text"  required="required" maxlength = "50" class="form-control" name="rua">
+				  					</div>
+
+				  					<div class="col-sm-2">
+				    					<label for="numero">Nº:</label>
+				    					<input type="number"  required="required" min = "0" class="form-control" name="numero">
+				 		 			</div>
+
+				 		 			<div class="col-sm-2">
+				    					<label for="bairro">Bairro:</label>
+				    					<input type="text"  required="required" maxlength = "20" class="form-control" name="bairro">
+				  					</div>
+
+				  					<div class="col-sm-2">
+				    					<label for="cep">CEP:</label>
+				    					<input type="text"  required="required" maxlength = "9" class="form-control" name="cep">
+				  					</div>
+
+				  				</div>
+		  				</div>
+
+		  				<div id = "div_telefone" class="container-fluid">
+								<div class="row">
+									<div class="col-sm-2">
+				    					<label for="telefone">Telefone:</label>
+				    					<input type="text"  required="required" maxlength = "15" class = "form-control" name="telefone">
+				  					</div>
+				  				</div>
+				  		</div>
+				  	
+		  				<div style = "padding-top: 20px;" id = "div_submit" class="container-fluid">
+		  					<button " type="submit" class="btn-default">Enviar<i class="material-icons">file_download</i></button>
+		  				</div>
+						
+					</form>
+				</fieldset>
+			</div>
+
+		<div ng-controller = "AppCtrl as vm">
+			<table>
+				<caption>Pessoa</caption>
+				<thead>
+					<tr>
+						<th>Nome</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td ng-repeat = "pessoa in vm.pessoa">{{pessoa.nome}}</td>
+					</tr>
+				</tbody>
+
+			</table>
+
+		</div>
+	</body>
+</html>
